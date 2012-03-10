@@ -228,9 +228,6 @@ set rtp+=PATH-TO-VAM
 au GUIEnter * call SetupVAM()
 
 
- call vam#ActivateAddons(['ensime', 'tlib', 'vim-addon-actions', 'vim-addon-async', 'vim-addon-completion', 'vim-addon-json-encoding', 'vim-addon-mw-utils', 'vim-addon-sbt', 'vim-addon-signs'], {'auto_install' : 0})
-
-
 " NeocompleteCache, une autocomplétion qu'elle est mieux
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -243,7 +240,7 @@ let g:neocomplcache_enable_camel_case_completion = 1
 " Use underbar completion.
 let g:neocomplcache_enable_underbar_completion = 1
 " Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_min_syntax_length = 4
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 
