@@ -1,0 +1,4 @@
+#! /bin/sh
+
+# set the "$£¤" key as the å key.
+xmodmap -e "keycode 35 = aring"

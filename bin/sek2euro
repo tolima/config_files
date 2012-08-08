@@ -1,0 +1,22 @@
+#!/usr/bin/python
+# -*- coding: UTF8 -*-
+
+import sys
+from sek_resources import *
+
+
+if len(sys.argv) < 2:
+    short_name = sys.argv[0].split('/')[-1]
+    print("Usage: {0} valueSek [valueSek ...]".format(short_name))
+    exit(0)
+
+prices = [float(n) for n in sys.argv[1:]]
+sek_and_euros = [(sek_price, sek_to_euro(sek_price)) for sek_price in prices]
+
+max_price_length = max([len(str(n)) for n in prices])
+
+print("For 1 sek being {0} euros, we have:".format(one_euro_in_sek))
+
+for (s, e) in sek_and_euros:
+    padding = (max_price_length - len(str(s))) * " "
+    print(str(s) + padding + " sek are %.2f €" % e)
