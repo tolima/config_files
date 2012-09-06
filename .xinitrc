@@ -9,5 +9,5 @@ fi
 
 
 #ck-launch-session openbox-session
-ck-launch-session openbox-session;
+ck-launch-session dbus-launch openbox-session;
 #exec ck-launch-session startxfce4;
