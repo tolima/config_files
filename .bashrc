@@ -13,7 +13,7 @@ set -o vi
 [ -z "$PS1" ] && return
 
 #Ajouter la suite arp-none-eabi au PATH
-export PATH=$PATH:/opt/arm_none_eabi/bin:~/Rose/git/IRL/armadeus-3.4/buildroot/output/build/staging_dir/usr/bin:/opt/Xilinx/13.1/ISE_DS/ISE/bin/lin64:~/bin
+export PATH=$PATH:~/bin
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
@@ -181,6 +181,10 @@ alias traceroute='grc traceroute'
 # Tell tmux to use ~/.config/tmux/.tmux.conf as a config file
 # -2 is to use 256 colors
 alias tmux='tmux -2 -f ~/.config/tmux/tmux.conf'
+
+alias ktssh='ssh ricordel@u-shell.csc.kth.se'
+alias ktsshx='ssh -Y ricordel@u-shell.csc.kth.se'
+alias ktsshfs='sshfs ricordel@u-shell.csc.kth.se: ~/kth_sshfs'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
