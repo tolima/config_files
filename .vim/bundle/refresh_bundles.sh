@@ -51,7 +51,7 @@ refresh git://github.com/jlc/ensime-common.git ensime-common
 
 # envim itself
 # XXX don't let it refresh by itself as I removed stuff with vim addon manager
-refresh git://github.com/jlc/envim.git envim
+#refresh git://github.com/jlc/envim.git envim
 
 # Vim-async-beans : async communication through NetBeans protocol
 refresh git://github.com/jlc/vim-async-beans.git vim-async-beans
@@ -62,3 +62,9 @@ refresh https://github.com/behaghel/vim-scala.git vim-scala-behaghel
 
 # Vim-async
 refresh git://github.com/jlc/vim-addon-async.git vim-addon-async
+
+# Fugitive: the ultimate git integration
+refresh https://github.com/tpope/vim-fugitive
+
+# Vim-surround: vais-je vraiment l'utiliser ? Mystère...
+refresh https://github.com/tpope/vim-surround
