@@ -186,20 +186,24 @@ alias ktssh='ssh ricordel@u-shell.csc.kth.se'
 alias ktsshx='ssh -Y ricordel@u-shell.csc.kth.se'
 alias ktsshfs='sshfs ricordel@u-shell.csc.kth.se: ~/kth_sshfs'
 
+
+# Some shorthands for the conversion utility I wrote (in ~/bin)
+alias 10to16='~/bin/convert_base 10 16'
+alias 16to10='~/bin/convert_base 16 10'
+alias 2to10='~/bin/convert_base 2 10'
+alias 10to2='~/bin/convert_base 10 2'
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-#if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    #. /etc/bash_completion
-#fi
+if [ -f /etc/bash_completion ]; then
+ . /etc/bash_completion
+fi # See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
 
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk/

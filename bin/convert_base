@@ -1,0 +1,51 @@
+#!/usr/bin/python
+
+# this script must be called with:
+#   - first argument: input base
+#   - second argument: output base
+#   - rest: numbers to convert
+
+from sys import argv
+
+
+
+def int2base(value, base):
+    """ Convert the integer 'value' to its string representation in base 'base' """
+    assert(base <= 36)
+
+    symbols = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+               'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
+               'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
+               'u', 'v', 'w', 'x', 'y', 'z']
+
+    digits = []
+    while value != 0:
+        value, digit = value / base, value % base
+        digits.append(symbols[digit])
+
+    digits.reverse() # in place
+
+    return "".join(digits)
+
+
+
+
+
+
+if len(argv) < 4:
+    print("Usage: %s input-base outpout-base arg [arg..]" % argv[0])
+    exit(1)
+
+ibase = int(argv[1])
+obase = int(argv[2])
+
+if obase > 36:
+    print("Cannot convert to base > 36: don't know which symbols to use !")
+    exit(1)
+
+to_convert_str = argv[3:]
+# interpret strings as ibase numbers
+to_convert_int = [int(st, ibase) for st in to_convert_str]
+out_strings = [int2base(n, obase) for n in to_convert_int]
+
+print(" ".join(out_strings))
