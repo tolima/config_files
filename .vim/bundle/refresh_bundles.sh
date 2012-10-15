@@ -42,29 +42,15 @@ refresh https://github.com/majutsushi/tagbar.git tagbar
 refresh https://github.com/ornicar/vim-mru.git mru
 
 
-##### Some things for ensime in vim, Jean-luc Chasseriau's version #####
-# ensime itself, scala 2.9 version
-refresh git://github.com/aemoncannon/ensime.git ensime
-
-# ensime-common, contains decorators, S-expr parser, and Swank protocol stuff
-refresh git://github.com/jlc/ensime-common.git ensime-common
-
-# envim itself
-# XXX don't let it refresh by itself as I removed stuff with vim addon manager
-#refresh git://github.com/jlc/envim.git envim
-
-# Vim-async-beans : async communication through NetBeans protocol
-refresh git://github.com/jlc/vim-async-beans.git vim-async-beans
-
 # vim-scala-behaghel: version of scala vim config files by some guy that
 # seems to have improved it. (but needs some testing before...)
 refresh https://github.com/behaghel/vim-scala.git vim-scala-behaghel
-
-# Vim-async
-refresh git://github.com/jlc/vim-addon-async.git vim-addon-async
 
 # Fugitive: the ultimate git integration
 refresh https://github.com/tpope/vim-fugitive
 
 # Vim-surround: vais-je vraiment l'utiliser ? Mystère...
 refresh https://github.com/tpope/vim-surround
+
+# New tentative ensime integration by Andrey Popp
+https://github.com/andreypopp/ensime
