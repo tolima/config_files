@@ -48,8 +48,9 @@ nnoremap <leader>n :nohls<CR>
 set backup
 set backupdir=~/.vim_tmp,~/.tmp,~/tmp,/tmp
 set directory=~/.vim_tmp,~/.tmp,~/tmp,/tmp
-set undofile " Undo persistant : keeps undo log even when file closed
-set undodir=~/.vim_tmp,~/.tmp,~/tmp,/tmp
+" Not supported in the version currently installed on Crunchbang
+"set undofile " Undo persistant : keeps undo log even when file closed
+"set undodir=~/.vim_tmp,~/.tmp,~/tmp,/tmp
 
 set switchbuf=useopen " use open buffer when in quickfix mode
 
