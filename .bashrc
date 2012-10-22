@@ -185,6 +185,8 @@ alias tmux='tmux -2 -f ~/.config/tmux/tmux.conf'
 alias ktssh='ssh ricordel@u-shell.csc.kth.se'
 alias ktsshx='ssh -Y ricordel@u-shell.csc.kth.se'
 alias ktsshfs='sshfs ricordel@u-shell.csc.kth.se: ~/kth_sshfs'
+alias gothmogssh='ssh pcs_8@gothmog.it.kth.se'
+alias gothmogsshx='ssh -X pcs_8@gothmog.it.kth.se'
 
 
 # Some shorthands for the conversion utility I wrote (in ~/bin)
