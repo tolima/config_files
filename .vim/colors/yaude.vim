@@ -88,6 +88,9 @@ hi scalaDef guifg=#36C23C       gui=bold,italic ctermfg=197     cterm=bold
 hi scalaVar guifg=#36C23C       gui=bold,italic ctermfg=197     cterm=bold
 hi scalaVal guifg=#36C23C       gui=bold,italic ctermfg=197     cterm=bold
 
+" weird thing that does not work if directly linked with Type... (cf after/syntax/c.vim)
+hi cCustomClass   guifg=#36C23C       gui=bold,italic ctermfg=28      cterm=bold
+
 hi psycStatement    ctermfg=47  cterm=bold
 
 

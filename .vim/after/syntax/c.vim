@@ -272,3 +272,14 @@ hi def link cDelimiter Special
 hi def link cUserType Type
 
 
+" Highlight Class and Function names
+syn match    cCustomClass      "\w\+\s*::" "contains=cCustomScope
+syn match    cCustomParen      "(" contains=cParen,cCppParen
+syn match    cCustomScope      "::"
+syn match    cTypeInNameSpace  "\w\+\s\+" contains=cCustomParen
+syn match    cCustomFunc       "\w\+\s*(" contains=cCustomParen
+
+"hi def link cCustomClass Type " Pour une raison bizarre ça ne marche pas,
+                               " direct dans le colorscheme, donc
+hi def link cCustomFunc  Function
+hi def link cTypeInNameSpace Type
