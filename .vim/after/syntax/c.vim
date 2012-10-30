@@ -273,11 +273,12 @@ hi def link cUserType Type
 
 
 " Highlight Class and Function names
-syn match    cCustomClass      "\w\+\s*::" "contains=cCustomScope
 syn match    cCustomParen      "(" contains=cParen,cCppParen
 syn match    cCustomScope      "::"
-syn match    cTypeInNameSpace  "\w\+\s\+" contains=cCustomParen
 syn match    cCustomFunc       "\w\+\s*(" contains=cCustomParen
+syn match    cCustomClass      "\w\+\s*::" contains=cCustomScope
+" Will infortunately also match class static fields, but...
+syn match    cTypeInNameSpace  "\w\+::\w\+\s" contains=cCustomParen,cCustomScope,cCustomClass
 
 "hi def link cCustomClass Type " Pour une raison bizarre ça ne marche pas,
                                " direct dans le colorscheme, donc
