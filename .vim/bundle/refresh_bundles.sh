@@ -53,4 +53,13 @@ refresh https://github.com/tpope/vim-fugitive
 refresh https://github.com/tpope/vim-surround
 
 # New tentative ensime integration by Andrey Popp
-https://github.com/andreypopp/ensime
+refresh https://github.com/andreypopp/ensime
+
+# Snipmate, snippet engine
+refresh https://github.com/msanders/snipmate.vim.git snipmate
+
+# Go standard plugins
+regresh https://github.com/jnwhiteh/vim-golang.git
+
+# Go autocomplete
+refresh https://github.com/nsf/gocode.git

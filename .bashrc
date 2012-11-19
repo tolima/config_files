@@ -12,8 +12,13 @@ set -o vi
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-#Ajouter la suite arp-none-eabi au PATH
-export PATH=$PATH:~/bin
+# pdt and tau to the path...
+export PATH=~/bin:~/bin/gcc-4.7/bin/:$PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/bin/gcc-4.7/lib:~/bin/gcc-4.7/lib64/
+
+# And use them by default in makefiles
+export CC=gcc-4.7
+export CXX=g++-4.7
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
@@ -138,6 +143,7 @@ alias m='make'
 alias makec='make CC=clang LD=clang'
 # Make with debug infos
 alias maked='make CPPFLAGS+=-DDEBUG'
+alias make11='make CC=gcc-4.7 CXX=g++-4.7'
 
 alias g='git'
 alias qgit='qgit --all'
@@ -209,3 +215,9 @@ fi # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk/
+export SCALA_HOME=/usr/share/scala
+
+# go root and stuff
+export GOROOT=/home/leyaude/bin/go
+export GOBIN=$GOROOT/bin
+export PATH=$PATH:$GOBIN
