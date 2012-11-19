@@ -27,7 +27,7 @@ set laststatus=2 " tells when last window has status lines
 
 " File completion : emacs-mode (longest prefix, then show a list
 set wildmode=longest,list
-set wildmenu
+"set wildmenu
 
 " Folding-related
 set foldmethod=syntax  " Folds are decided conidering syntax
@@ -135,6 +135,8 @@ function! InsertTabWrapper()
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-p>
+inoremap <Nul> <c-n>
+
 
 
 " Only complete to longest common prefix and show the menu even for only
@@ -168,8 +170,12 @@ nnoremap <silent> <F8> :NERDTreeToggle ./<CR>
 " Tagbar toggles with F9
 nmap <F9> :TagbarToggle<CR>
 
+" Recognize latex files
+au BufRead,BufNewFile *.tex setlocal ft=tex
+
 " Recognize Scala fileType, which does not seem automatic
 au BufRead,BufNewFile *.scala setlocal ft=scala
+
 
 " Scala syntax for tagbar
 let g:tagbar_type_scala = {
@@ -205,3 +211,7 @@ let g:tagbar_type_scala = {
 "let g:neocomplcache_min_syntax_length = 4
 "let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 "let g:neocomplcache_disable_auto_complete = 1 " Complete only if I ask, please !
+
+
+" Attempt to cut myself from the ESC key.
+imap <leader>k <ESC>
