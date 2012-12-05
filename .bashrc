@@ -13,8 +13,8 @@ set -o vi
 [ -z "$PS1" ] && return
 
 # pdt and tau to the path...
-export PATH=~/bin:~/bin/gcc-4.7/bin/:$PATH
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/bin/gcc-4.7/lib:~/bin/gcc-4.7/lib64/
+export PATH=~/bin:~/bin/gcc-4.7/bin/:~/bin/llvm/bin/:$PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/bin/gcc-4.7/lib:~/bin/gcc-4.7/lib64/:~/bin/llvm/lib/
 
 # And use them by default in makefiles
 export CC=gcc-4.7
@@ -140,7 +140,7 @@ alias maman='sudo'
 alias make='clear && make -j5'
 alias m='make'
 # Make with clang as C compiler (for better error messages)
-alias makec='make CC=clang LD=clang'
+alias makec='make CC=clang LD=clang CXX=clang++'
 # Make with debug infos
 alias maked='make CPPFLAGS+=-DDEBUG'
 alias make11='make CC=gcc-4.7 CXX=g++-4.7'
@@ -193,6 +193,8 @@ alias ktsshx='ssh -Y ricordel@u-shell.csc.kth.se'
 alias ktsshfs='sshfs ricordel@u-shell.csc.kth.se: ~/kth_sshfs'
 alias gothmogssh='ssh pcs_8@gothmog.it.kth.se'
 alias gothmogsshx='ssh -X pcs_8@gothmog.it.kth.se'
+alias smal1ssh='ssh pcs_8@smal1.sics.se'
+alias smal1sshx='ssh -X pcs_8@smal1.sics.se'
 
 
 # Some shorthands for the conversion utility I wrote (in ~/bin)
