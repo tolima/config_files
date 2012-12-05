@@ -63,3 +63,6 @@ regresh https://github.com/jnwhiteh/vim-golang.git
 
 # Go autocomplete
 refresh https://github.com/nsf/gocode.git
+
+# Nyan cat, because...
+refresh https://github.com/koron/nyancat-vim.git

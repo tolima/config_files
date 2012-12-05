@@ -135,7 +135,10 @@ function! InsertTabWrapper()
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-p>
-inoremap <Nul> <c-n>
+"inoremap <Nul> <c-n>
+
+" C-space makes omnicompletion
+inoremap <Nul> <c-x><c-o>
 
 
 
@@ -215,3 +218,4 @@ let g:tagbar_type_scala = {
 
 " Attempt to cut myself from the ESC key.
 imap <leader>k <ESC>
+map <leader>w <ESC>:w<CR>a

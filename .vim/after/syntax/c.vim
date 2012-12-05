@@ -278,7 +278,7 @@ syn match    cCustomScope      "::"
 syn match    cCustomFunc       "\w\+\s*(" contains=cCustomParen
 syn match    cCustomClass      "\w\+\s*::" contains=cCustomScope
 " Will infortunately also match class static fields, but...
-syn match    cTypeInNameSpace  "\w\+::\w\+\s" contains=cCustomParen,cCustomScope,cCustomClass
+syn match    cTypeInNameSpace  "\w\+::\w\+&\?\s" contains=cCustomParen,cCustomScope,cCustomClass,cOperator
 
 "hi def link cCustomClass Type " Pour une raison bizarre ça ne marche pas,
                                " direct dans le colorscheme, donc

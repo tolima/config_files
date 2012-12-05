@@ -83,7 +83,7 @@ let s:delimiterMap = {
     \ 'asm68k': { 'left': ';' },
     \ 'asm': { 'left': ';', 'leftAlt': '#' },
     \ 'asn': { 'left': '--' },
-    \ 'aspvbs': { 'left': '''' },
+    \ 'aspvbs': { 'left': '''', 'leftAlt': '<!--', 'rightAlt': '-->' },
     \ 'asterisk': { 'left': ';' },
     \ 'asy': { 'left': '//' },
     \ 'atlas': { 'left': 'C', 'right': '$' },
@@ -112,6 +112,7 @@ let s:delimiterMap = {
     \ 'clipper': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
     \ 'clojure': { 'left': ';' },
     \ 'cmake': { 'left': '#' },
+    \ 'coffee': { 'left': '#' },
     \ 'conkyrc': { 'left': '#' },
     \ 'cpp': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
     \ 'crontab': { 'left': '#' },
@@ -175,6 +176,7 @@ let s:delimiterMap = {
     \ 'gitconfig': { 'left': ';' },
     \ 'gitrebase': { 'left': '#' },
     \ 'gnuplot': { 'left': '#' },
+    \ 'go': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
     \ 'groovy': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
     \ 'gsp': { 'left': '<%--', 'right': '--%>', 'leftAlt': '<!--','rightAlt': '-->'},
     \ 'gtkrc': { 'left': '#' },
@@ -182,12 +184,14 @@ let s:delimiterMap = {
     \ 'hb': { 'left': '#' },
     \ 'h': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
     \ 'haml': { 'left': '-#', 'leftAlt': '/' },
+    \ 'haxe': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
     \ 'hercules': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
     \ 'hog': { 'left': '#' },
     \ 'hostsaccess': { 'left': '#' },
     \ 'htmlcheetah': { 'left': '##' },
     \ 'htmldjango': { 'left': '<!--','right': '-->', 'leftAlt': '{#', 'rightAlt': '#}' },
     \ 'htmlos': { 'left': '#', 'right': '/#' },
+    \ 'hxml': { 'left': '#' },
     \ 'ia64': { 'left': '#' },
     \ 'icon': { 'left': '#' },
     \ 'idlang': { 'left': ';' },
@@ -246,6 +250,7 @@ let s:delimiterMap = {
     \ 'modula3': { 'left': '(*', 'right': '*)' },
     \ 'monk': { 'left': ';' },
     \ 'mush': { 'left': '#' },
+    \ 'mustache': { 'left': '{{!', 'right': '}}' },
     \ 'named': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
     \ 'nasm': { 'left': ';' },
     \ 'nastran': { 'left': '$' },
@@ -313,6 +318,7 @@ let s:delimiterMap = {
     \ 'sass': { 'left': '//', 'leftAlt': '/*' },
     \ 'sather': { 'left': '--' },
     \ 'scala': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
+    \ 'scons': { 'left': '#' },
     \ 'scheme': { 'left': ';', 'leftAlt': '#|', 'rightAlt': '|#' },
     \ 'scilab': { 'left': '//' },
     \ 'scsh': { 'left': ';' },
@@ -349,6 +355,7 @@ let s:delimiterMap = {
     \ 'squid': { 'left': '#' },
     \ 'st': { 'left': '"' },
     \ 'stp': { 'left': '--' },
+    \ 'supercollider': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
     \ 'systemverilog': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
     \ 'tads': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
     \ 'tags': { 'left': ';' },
@@ -1172,15 +1179,8 @@ function s:PlaceDelimitersAndInsBetween()
         execute ":normal! " . lenRight . "h"
     else
         execute ":normal! " . insOrApp . left
-
-        " if we are tacking the delim on the EOL then we gotta add a space
-        " after it cos when we go out of insert mode the cursor will move back
-        " one and the user wont be in position to type the comment.
-        if isDelimOnEOL
-            execute 'normal! a '
-        endif
     endif
-    normal! l
+    silent! normal! l
 
     "if needed convert spaces back to tabs and adjust the cursors col
     "accordingly
@@ -1190,7 +1190,11 @@ function s:PlaceDelimitersAndInsBetween()
         call cursor(line("."), tabbedCol)
     endif
 
-    startinsert
+    if isDelimOnEOL && lenRight == 0
+        startinsert!
+    else
+        startinsert
+    endif
 endfunction
 
 " Function: s:RemoveDelimiters(left, right, line) {{{2
@@ -2755,6 +2759,8 @@ call s:CreateMaps('n',  'AltDelims',  'Switch Delimiters', 'ca')
 call s:CreateMaps('i',  'Insert',     'Insert Comment Here', '')
 call s:CreateMaps('',   ':',          '-Sep3-', '')
 call s:CreateMaps('',   ':help NERDCommenterContents<CR>', 'Help', '')
+
+inoremap <silent> <plug>NERDCommenterInsert <SPACE><BS><ESC>:call NERDComment('i', "insert")<CR>
 
 " switch to/from alternative delimiters (does not use wrapper function)
 nnoremap <plug>NERDCommenterAltDelims :call <SID>SwitchToAlternativeDelimiters(1)<cr>
