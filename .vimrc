@@ -218,4 +218,5 @@ let g:tagbar_type_scala = {
 
 " Attempt to cut myself from the ESC key.
 imap <leader>k <ESC>
-map <leader>w <ESC>:w<CR>a
+imap <leader>w <ESC>:w<CR>a
+nmap <leader>w :w<CR>

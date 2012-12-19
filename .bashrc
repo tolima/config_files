@@ -195,6 +195,11 @@ alias gothmogssh='ssh pcs_8@gothmog.it.kth.se'
 alias gothmogsshx='ssh -X pcs_8@gothmog.it.kth.se'
 alias smal1ssh='ssh pcs_8@smal1.sics.se'
 alias smal1sshx='ssh -X pcs_8@smal1.sics.se'
+alias avrilssh='ssh ricordel@avril.it.kth.se'
+alias colombianassh='ssh ricordel@shell.it.kth.se'
+alias atlantisssh='ssh ricordel@atlantis.it.kth.se'
+alias subwayssh='ssh ricordel@subway.it.kth.se'
+alias malavitassh='ssh ricordel@subway.it.kth.se'
 
 
 # Some shorthands for the conversion utility I wrote (in ~/bin)
@@ -223,3 +228,6 @@ export SCALA_HOME=/usr/share/scala
 export GOROOT=/home/leyaude/bin/go
 export GOBIN=$GOROOT/bin
 export PATH=$PATH:$GOBIN
+
+# Tell Vmail to use elinks for html visualization
+export VMAIL_HTML_PART_READER='elinks -dump'
